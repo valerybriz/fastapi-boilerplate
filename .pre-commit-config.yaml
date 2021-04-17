@@ -1,0 +1,42 @@
+repos:
+    - repo: https://github.com/ambv/black
+      rev: 19.10b0
+      hooks:
+          - id: black
+            language_version: python3
+            always_run: true
+    - repo: https://github.com/pre-commit/pre-commit-hooks
+      rev: v2.5.0
+      hooks:
+          - id: trailing-whitespace
+          - id: check-added-large-files
+          - id: end-of-file-fixer
+          - id: flake8
+          - id: check-ast
+          - id: check-builtin-literals
+          - id: check-docstring-first
+          - id: check-json
+          - id: check-merge-conflict
+          - id: check-yaml
+          - id: debug-statements
+          #- id: detect-aws-credentials
+          - id: detect-private-key
+          - id: fix-encoding-pragma
+            args: [--remove]
+    - repo: https://github.com/asottile/reorder_python_imports
+      rev: v2.1.0
+      hooks:
+          - id: reorder-python-imports
+    - repo: https://github.com/PyCQA/bandit
+      rev: 1.6.2
+      hooks:
+          - id: bandit
+            args:
+                [
+                    --exclude,
+                    "*/factories/*"
+                ]
+            exclude: ^tests/
+
+default_language_version:
+    python: python3.8
