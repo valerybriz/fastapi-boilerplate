@@ -18,10 +18,7 @@ router = APIRouter()
 
 
 @router.post(
-    "/hello_world",
-    tags=["data"],
-    status_code=HTTP_200_OK,
-    response_model=Item,
+    "/hello_world", tags=["data"], status_code=HTTP_200_OK, response_model=Item,
 )
 async def post_message(
     content: ItemInParse,
@@ -59,15 +56,13 @@ async def post_message_async(
         )
 
     backgroundtask = BackgroundTasks()
-    backgroundtask.add_task(
-        dummy_background_task, content.message
-    )
+    backgroundtask.add_task(dummy_background_task, content.message)
 
     return JSONResponse(
         {"status": "Starting dummy background task"}, background=backgroundtask,
     )
 
-    #item = Item()
-    #item.message = content.message
-    #item.status = "OK"
-    #return item
+    # item = Item()
+    # item.message = content.message
+    # item.status = "OK"
+    # return item
