@@ -6,7 +6,7 @@ from pydantic import BaseModel
 class ItemBase(BaseModel):
     """Shared properties"""
 
-    message: list = None
+    message: str = None
     source_name: Optional[str] = None
 
 

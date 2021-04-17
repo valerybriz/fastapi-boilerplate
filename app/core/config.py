@@ -5,6 +5,7 @@ from starlette.datastructures import CommaSeparatedStrings
 from starlette.datastructures import Secret
 
 logger = logging.getLogger("fastapi boilerplate")
+logger.setLevel(logging.DEBUG)  # Change for production
 
 API_V1_STR = "/api/v1"
 JWT_TOKEN_PREFIX = "Token"

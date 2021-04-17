@@ -17,10 +17,10 @@ async def connect_to_mongo():
             maxPoolSize=MAX_CONNECTIONS_COUNT,
             minPoolSize=MIN_CONNECTIONS_COUNT,
         )
-        data = {"email": "0@gmail.com", "password": "0", "username": "0"}
+        #data = {"email": "0@gmail.com", "password": "0", "username": "0"}
         # try to create a sample user
         # raise exception if something fails
-        await create_user(db.client, UserInCreate(**data))
+        #await create_user(db.client, UserInCreate(**data))
 
         logger.info("connected！")
     else:
